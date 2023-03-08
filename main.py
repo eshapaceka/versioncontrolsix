@@ -2,10 +2,24 @@ def encoder(password):
     new_integer = ''  # acts as a "list" but a string to develop a new set of integers
     for integer in password:  # for loop to add three to each digit
         single_int = ((int(integer)) + 3) % 10  # wraps the integer in int to add three with modulo to isolate the integer
-        single_int = str(single_int). # changes to str to be able to be added
+        single_int = str(single_int) # changes to str to be able to be added
         new_integer += single_int  # added to the empty string
     return new_integer  # returns the new integer after the for loop concludes
 
+
+def decoder(password):
+    # First we want to take encoded password and covert it to a list.
+    pass_str = str(password)
+    pass_list = list((pass_str.strip(" ")))
+    res_list = []
+    # Use for loop to shift each digit and add to list.
+    for password in pass_list:
+        shift_down = (int(password) - 3) % 10
+        res_list.append(shift_down)
+    # Remove list.
+    password = ''.join(str(digit) for digit in res_list)
+
+    return password
 
 
 def main():
